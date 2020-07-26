@@ -7,7 +7,16 @@
 
 int main()
 {
+	Tardos *T = new Tardos(10, 2, 0.1);
+	T->BuildCode();
+	//T->ShowCodeTable();
+	T->Info();
+	char *y = T->Collide2(6, 5);
+	T->Detect(y, 2);
+	delete y;
+	delete T;
 
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
