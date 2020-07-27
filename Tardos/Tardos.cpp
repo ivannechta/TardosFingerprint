@@ -1,5 +1,4 @@
-﻿// Tardos.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+//Ivannechta<at>gmail.com
 
 #include <iostream>
 #include "Tardos.h"
@@ -7,25 +6,20 @@
 
 int main()
 {
-	Tardos *T = new Tardos(10, 2, 0.1);
-	T->BuildCode();
+	// Example:
+	Tardos *T = new Tardos(10, 2, 0.1); //Prepare code. Params are (10- Total users/fingerprints, 2- collision size, 0.1- detection_error_probability).
+	T->BuildCode();  //Build CodeTable
 	//T->ShowCodeTable();
-	T->Info();
-	char *y = T->Collide2(6, 5);
-	T->Detect(y, 2);
+	T->Info(); //Show some information about code
+	
+	//Example detecyion
+	char *y = T->Collide2(5, 6); // Coalition with two intruders(№5,6) creates mutual fingerprint by randomly changing differing bits in their fingerprints
+	// after interception corruped fingerprint we  try to detect the coalition
+	T->Detect(y, 2); // y- intercepted fingerprint, 2 - coaltion size
+	// Result: Scores and users numbers would be shown. 
+	
 	delete y;
 	delete T;
 
 	return 0;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
