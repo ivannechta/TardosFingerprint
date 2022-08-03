@@ -47,7 +47,7 @@ private:
 	int CalcScore(int i, char *y) {
 		double score = 0, U;
 		for (int j = 0; j < CodeLength; j++) {
-			U = (Code[i][j] == '1') ? sqrt(P[j] / (1 - P[j])) : -sqrt(P[j] / (1 - P[j]));
+			U = (Code[i][j] == '1') ? sqrt((1 - P[j])/P[j]) : -sqrt(P[j] / (1 - P[j]));
 			score += (y[j] - '0')*U;
 		}
 		return score;
